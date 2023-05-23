@@ -15,3 +15,5 @@ export const Img = styled.img`
         box-shadow: 0px 3px 3px 0px rgba(34, 9, 107, 0.521);
     }
 `
+
+

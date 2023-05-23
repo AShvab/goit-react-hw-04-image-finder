@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Container } from './App.styled';
 
-
-class App extends Component {
-  state = {
-    pictureName: '',
-  };
-
-  handleFormSubmit = pictureName => {
-    this.setState({ pictureName});
+export const App =() => {
+  const [ pictureName, setPictureName] = useState('');
+  const handleFormSubmit = pictureName => {
+    setPictureName( pictureName);
    };
-  render() {
-
-    return (
-      <Container>
-        <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery pictureName={this.state.pictureName} />
-        <ToastContainer autoClose={2000} />
-      </Container>
-    );
-  }
-} 
+  return (
+          <Container>
+            <Searchbar onSubmit={handleFormSubmit} />
+            <ImageGallery pictureName={pictureName} />
+            <ToastContainer autoClose={2000} />
+          </Container>
+        );
+}
 
 export default App;
 
